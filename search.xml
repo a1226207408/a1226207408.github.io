@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Markdown新手入门使用</title>
+    <url>/2020/06/11/Markdown%E6%96%B0%E6%89%8B%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="Markdown新手入门使用"><a href="#Markdown新手入门使用" class="headerlink" title="Markdown新手入门使用"></a>Markdown新手入门使用</h1><p>现在是寒假的第二天。为了养成自己做笔记和写博客的习惯，打算学习一下在知乎被安利的markdown。本着学以致用的原则，在学习之前我们先了解一下markdown是什么和他有什么用。</p>
+<h2 id="是什么-用处"><a href="#是什么-用处" class="headerlink" title="是什么 + 用处"></a>是什么 + 用处</h2><blockquote>
+<p>Markdown是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>百度百科</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>Markdown的语法简洁明了、学习容易，而且功能比纯文本更强，因此有很多人用它写博客。世界上最流行的博客平台<a href="https://baike.baidu.com/item/WordPress" target="_blank" rel="noopener">WordPress</a>和大型CMS如<a href="https://baike.baidu.com/item/Joomla" target="_blank" rel="noopener">Joomla</a>、<a href="https://baike.baidu.com/item/Drupal" target="_blank" rel="noopener">Drupal</a>都能很好的支持Markdown。完全采用Markdown编辑器的博客平台有<a href="https://baike.baidu.com/item/Ghost/17013737" target="_blank" rel="noopener">Ghost</a>和<a href="https://baike.baidu.com/item/Typecho" target="_blank" rel="noopener">Typecho</a>。</p>
+<p>用于编写说明文档，并且以“README.md”的文件名保存在软件的目录下面。</p>
+<p>除此之外，由于我们有了RStudio这样的神级编辑器，我们还可以快速将Markdown转化为演讲PPT、Word产品文档、LaTex论文甚至是用非常少量的代码完成最小可用原型。在数据科学领域，Markdown已经广泛使用，极大地推进了动态可重复性研究的历史进程。</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>百度百科</p>
+</blockquote>
+</blockquote>
+<h2 id="markdown基本语法"><a href="#markdown基本语法" class="headerlink" title="markdown基本语法"></a>markdown基本语法</h2><h3 id="1-代码块"><a href="#1-代码块" class="headerlink" title="1.代码块"></a>1.代码块</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//代码块格式</span></span><br><span class="line">​```语言名称</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.yrp.po;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.persistence.*;</span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Table</span>(name = <span class="string">"t_user"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Id</span></span><br><span class="line">    <span class="meta">@GeneratedValue</span></span><br><span class="line">    <span class="keyword">private</span> Long id;</span><br><span class="line">    <span class="keyword">private</span> String nickname;</span><br><span class="line">    <span class="keyword">private</span> String username;</span><br><span class="line">    <span class="keyword">private</span> String password;</span><br><span class="line">    <span class="keyword">private</span> String email;</span><br><span class="line">    <span class="keyword">private</span> String avatar;</span><br><span class="line">    <span class="keyword">private</span> Integer type;</span><br><span class="line">    <span class="meta">@Temporal</span>(TemporalType.TIMESTAMP)</span><br><span class="line">    <span class="keyword">private</span> Date createTime;</span><br><span class="line">    <span class="meta">@Temporal</span>(TemporalType.TIMESTAMP)</span><br><span class="line">    <span class="keyword">private</span> Date updateTime;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@OneToMany</span>(mappedBy = <span class="string">"user"</span>)</span><br><span class="line">    <span class="keyword">private</span> List&lt;Blog&gt; blogs = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">User</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Long <span class="title">getId</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> id;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(Long id)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.id = id;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getNickname</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> nickname;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setNickname</span><span class="params">(String nickname)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.nickname = nickname;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getUsername</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> username;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUsername</span><span class="params">(String username)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.username = username;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getPassword</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> password;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPassword</span><span class="params">(String password)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.password = password;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getEmail</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> email;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setEmail</span><span class="params">(String email)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.email = email;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getAvatar</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> avatar;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAvatar</span><span class="params">(String avatar)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.avatar = avatar;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Integer <span class="title">getType</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> type;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setType</span><span class="params">(Integer type)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.type = type;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Date <span class="title">getCreateTime</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> createTime;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCreateTime</span><span class="params">(Date createTime)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.createTime = createTime;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Date <span class="title">getUpdateTime</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> updateTime;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUpdateTime</span><span class="params">(Date updateTime)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.updateTime = updateTime;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;Blog&gt; <span class="title">getBlogs</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> blogs;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setBlogs</span><span class="params">(List&lt;Blog&gt; blogs)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.blogs = blogs;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"User&#123;"</span> +</span><br><span class="line">                <span class="string">"id="</span> + id +</span><br><span class="line">                <span class="string">", nickname='"</span> + nickname + <span class="string">'\''</span> +</span><br><span class="line">                <span class="string">", username='"</span> + username + <span class="string">'\''</span> +</span><br><span class="line">                <span class="string">", password='"</span> + password + <span class="string">'\''</span> +</span><br><span class="line">                <span class="string">", email='"</span> + email + <span class="string">'\''</span> +</span><br><span class="line">                <span class="string">", avatar='"</span> + avatar + <span class="string">'\''</span> +</span><br><span class="line">                <span class="string">", type="</span> + type +</span><br><span class="line">                <span class="string">", createTime="</span> + createTime +</span><br><span class="line">                <span class="string">", updateTime="</span> + updateTime +</span><br><span class="line">                <span class="string">'&#125;'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-标题"><a href="#2-标题" class="headerlink" title="2.标题"></a>2.标题</h3><figure class="highlight"><table><tr><td class="code"><pre><span class="line"><span class="comment">//标题格式</span></span><br><span class="line">可设置六级标题</span><br><span class="line"># 一级标题</span><br><span class="line">## 二级标题</span><br><span class="line">### 三级标题</span><br><span class="line">#### 四级标题</span><br><span class="line">##### 五级标题</span><br><span class="line">###### 六级标题</span><br></pre></td></tr></table></figure>
+
+<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5><h6 id="六级标题"><a href="#六级标题" class="headerlink" title="六级标题"></a>六级标题</h6><h3 id="3-字体"><a href="#3-字体" class="headerlink" title="3.字体"></a>3.字体</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//文字格式</span></span><br><span class="line"></span><br><span class="line">文字加粗</span><br><span class="line">**加粗的字体**</span><br><span class="line">文字高亮</span><br><span class="line">==高亮的字体==</span><br><span class="line">文字废除</span><br><span class="line">~~废除的文字~~</span><br><span class="line">文字斜体</span><br><span class="line">*斜体的文字*</span><br></pre></td></tr></table></figure>
+
+<p><strong>加粗的字体</strong></p>
+<p>==高亮的字体==</p>
+<p><del>废除的文字</del></p>
+<p><em>斜体的文字</em> </p>
+<h3 id="4-引用"><a href="#4-引用" class="headerlink" title="4.引用"></a>4.引用</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//引用格式</span></span><br><span class="line">&gt;<span class="number">1</span>级引用</span><br><span class="line">&gt;&gt;<span class="number">2</span>级引用</span><br><span class="line">&gt;&gt;&gt;<span class="number">3</span>级引用</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>1级引用</p>
+<blockquote>
+<p>2级引用</p>
+<blockquote>
+<p>3级引用    </p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h3 id="5-表格"><a href="#5-表格" class="headerlink" title="5.表格"></a>5.表格</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//表格格式</span></span><br><span class="line">比较麻烦，建议右键创建自定义表格</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="6-列表"><a href="#6-列表" class="headerlink" title="6.列表"></a>6.列表</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//列表格式</span></span><br><span class="line"><span class="comment">//有序列表 序号+点+空格，生成列表</span></span><br><span class="line"><span class="number">1</span>. 首页</span><br><span class="line"><span class="number">2</span>. 分类</span><br><span class="line"><span class="number">3</span>. 标题</span><br><span class="line"><span class="comment">//无序列表 - + 空格</span></span><br><span class="line">- 首页</span><br><span class="line">- 分类</span><br><span class="line">- 标题</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>首页</li>
+<li>分类</li>
+<li>标题</li>
+</ol>
+<ul>
+<li>首页</li>
+<li>分类</li>
+<li>标题   </li>
+</ul>
+<h3 id="7-图片"><a href="#7-图片" class="headerlink" title="7.图片"></a>7.图片</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//图片插入格式</span></span><br><span class="line">![图片名称](图片地址：可以是本地，也可以是网络)</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://47.104.231.144:9999/blog/images/me4.png" alt="my picture"></p>
+<h3 id="8-超链接"><a href="#8-超链接" class="headerlink" title="8.超链接"></a>8.超链接</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//超链接格式</span></span><br><span class="line">[名称](链接地址)</span><br></pre></td></tr></table></figure>
+
+<p><a href="www.baidu.com">百度</a></p>
+<h3 id="9-分割线"><a href="#9-分割线" class="headerlink" title="9.分割线"></a>9.分割线</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//分割线格式</span></span><br><span class="line"><span class="comment">//分隔线（长度：根据内容而定）</span></span><br><span class="line">---</span><br><span class="line"><span class="comment">//分割线（占全屏）</span></span><br><span class="line">***</span><br></pre></td></tr></table></figure>
+
+<hr>
+<hr>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>入门向</tag>
+        <tag>分享</tag>
+      </tags>
+  </entry>
+</search>
