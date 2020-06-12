@@ -124,4 +124,45 @@
         <tag>分享</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Hexo博客部署记录</title>
+    <url>/2020/06/12/Hexo%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h1 id="Hexo博客部署记录"><a href="#Hexo博客部署记录" class="headerlink" title="Hexo博客部署记录"></a>Hexo博客部署记录</h1><h2 id="1-1环境准备（部署）"><a href="#1-1环境准备（部署）" class="headerlink" title="1.1环境准备（部署）"></a>1.1环境准备（部署）</h2><p>在安装Hexo之前需要配置以下环境：（下载安装）</p>
+<ul>
+<li>node.js</li>
+<li>git</li>
+</ul>
+<h2 id="1-2安装Hexo"><a href="#1-2安装Hexo" class="headerlink" title="1.2安装Hexo"></a>1.2安装Hexo</h2><p>在F盘（任意盘都可以）下创建一个文件夹blog（任意命名都可），控制台进入到相应路径（或者在文件夹下git bash）输入以下指令安装hexo。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install -g hexo</span><br></pre></td></tr></table></figure>
+
+<h2 id="1-3Hexo指令"><a href="#1-3Hexo指令" class="headerlink" title="1.3Hexo指令"></a>1.3Hexo指令</h2><p>安装完Hexo后，就需要了解一些基础的Hexo指令，以方便后续的操作。（指令要在blog所在路径运行）</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo init   &#x2F;&#x2F;初始化本地文件夹为网站的根目录</span><br><span class="line">hexo g(generate)    &#x2F;&#x2F;用于生成静态文件</span><br><span class="line">hexo clean      &#x2F;&#x2F;命令用于清理缓存文件，是一个比较常用的命令，网站显示异常时可尝试此操作</span><br><span class="line">hexo d(deploy)    &#x2F;&#x2F;部署网站，把本地的hexo部署到远程服务器</span><br><span class="line">hexo s(serve)     &#x2F;&#x2F;启动本地服务器</span><br><span class="line">hexo n(new)      &#x2F;&#x2F;新建文章</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="1-4部署Hexo"><a href="#1-4部署Hexo" class="headerlink" title="1.4部署Hexo"></a>1.4部署Hexo</h2><p>说明 ：部署前需要修改 _config.yml 配置文件，下面以 部署在github 为例进行说明</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: &lt;repository url&gt; &#x2F;&#x2F;github仓库地址</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+
+<p>然后需要安装一个hexo-git的插件,文件下git bush</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<p>这些都做完后就可以部署hexo到github服务器上了</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+
+
+<p>一般情况下，我个人的做法是现在本地编辑博客，然后在上传到服务器，这样会比较省时一些，毕竟每次hexo d都会有一些延迟，可能没法很快看到效果，而且太多次提交也不太好。</p>
+<h2 id="2-1踩坑记录"><a href="#2-1踩坑记录" class="headerlink" title="2.1踩坑记录"></a>2.1踩坑记录</h2><ul>
+<li>在修改config配置文件时，一定要注意在属性的冒号后面要加空格  否则hexo是无法解析的。</li>
+</ul>
+<h2 id="3-1参考博文"><a href="#3-1参考博文" class="headerlink" title="3.1参考博文"></a>3.1参考博文</h2><p><a href="https://www.cnblogs.com/liuxianan/p/build-blog-website-by-hexo-github.html#准备工作" target="_blank" rel="noopener">https://www.cnblogs.com/liuxianan/p/build-blog-website-by-hexo-github.html#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C</a></p>
+]]></content>
+      <categories>
+        <category>记录</category>
+      </categories>
+      <tags>
+        <tag>实战</tag>
+        <tag>部署</tag>
+      </tags>
+  </entry>
 </search>
